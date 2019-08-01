@@ -86,38 +86,6 @@ function App() {
 const rootElement = document.getElementById("root");
 ReactDOM.render(<App />, rootElement);
 
-function HVToggle(props) {
-  return props.horizontal ? <Horizontal {...props} /> : <Vertical {...props} />;
-}
-
-function Horizontal(props) {
-  const { number, image } = props;
-  return (
-    <div className="row no-gutters">
-      {nTimes(number).map((arg, index) => {
-        return (
-          <div key={index} className="col">
-            <img className="img-fluid" src={image} alt={image} />
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
-function Vertical(props) {
-  const { number, image } = props;
-  return nTimes(number).map((arg, index) => {
-    return (
-      <div key={index} className="row no-gutters">
-        <div className="col">
-          <img className="img-fluid" alt={image} src={image} />
-        </div>
-      </div>
-    );
-  });
-}
-
 function Grid(props) {
   const { number, image } = props;
   // shape is a matrix of rows and columns
@@ -199,4 +167,37 @@ function ColImage(props) {
 
 function nTimes(number) {
   return Array.from(Array(parseInt(number, 10)));
+}
+
+
+function HVToggle(props) {
+  return props.horizontal ? <Horizontal {...props} /> : <Vertical {...props} />;
+}
+
+function Horizontal(props) {
+  const { number, image } = props;
+  return (
+    <div className="row no-gutters">
+      {nTimes(number).map((arg, index) => {
+        return (
+          <div key={index} className="col">
+            <img className="img-fluid" src={image} alt={image} />
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function Vertical(props) {
+  const { number, image } = props;
+  return nTimes(number).map((arg, index) => {
+    return (
+      <div key={index} className="row no-gutters">
+        <div className="col">
+          <img className="img-fluid" alt={image} src={image} />
+        </div>
+      </div>
+    );
+  });
 }
