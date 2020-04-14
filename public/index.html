@@ -6,6 +6,13 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+       <script>
+// Don't force https when serving the website locally
+if (window.location.host !== "www.gorillawrangler.com") {
+    window.location.href = "https://www.gorillawrangler.com/tools/image-multiplier";
+}
+
+</script>
     <meta name="theme-color" content="#000000" />
     <!--
       manifest.json provides metadata used when your web app is added to the
